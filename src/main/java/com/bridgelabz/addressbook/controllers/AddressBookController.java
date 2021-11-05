@@ -22,9 +22,9 @@ public class AddressBookController {
 		return new ResponseEntity<String>("Get Call Success", HttpStatus.OK);
 	}
 	
-	@GetMapping("/get/{fName}")
-	public ResponseEntity<String> getAddressBookData(@PathVariable("fName") String fName){
-		return new ResponseEntity<String>("Get Call Success for name : " + fName, HttpStatus.OK);
+	@GetMapping("/get/{id}")
+	public ResponseEntity<String> getAddressBookData(@PathVariable("id") int id){
+		return new ResponseEntity<String>("Get Call Success for id : " + id, HttpStatus.OK);
 	}
 
 	@PostMapping("/create")
@@ -41,9 +41,9 @@ public class AddressBookController {
 				+ addrBookDTO, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/delete/{fName}")
-	public ResponseEntity<String> deleteAddressBookData(@PathVariable("fName") String fName){
-		return new ResponseEntity<String>("Delete Call Success for name: " + fName, HttpStatus.OK);
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteAddressBookData(@PathVariable("id") int id){
+		return new ResponseEntity<String>("Delete Call Success for id: " + id, HttpStatus.OK);
 	}
 
 }
