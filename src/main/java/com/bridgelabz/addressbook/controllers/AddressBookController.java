@@ -1,5 +1,7 @@
 package com.bridgelabz.addressbook.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,9 +28,8 @@ public class AddressBookController {
 	
 	@RequestMapping(value = {"", "/", "/get"})
 	public ResponseEntity<ResponseDTO> getAddressBookData(){
-		AddressBookData addressBookdata = null;
-		addressBookdata = new AddressBookData(1, new AddressBookDTO("Zoya", "Sanjeev",
-				"jpnagar", "hyderabad", "telangana", 500100,Long.valueOf(800990990),"zoya@gmail.com"));
+		List<AddressBookData> addressBookList = null;
+		addressBookList = addressBookService.getAddressBookData();
 		ResponseDTO respDTO = new ResponseDTO("Get Call Success",addressBookdata); 
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
