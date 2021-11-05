@@ -3,6 +3,7 @@ package com.bridgelabz.addressbook.model;
 import com.bridgelabz.addressbook.dto.AddressBookDTO;
 
 public class AddressBookData {
+	private int id;
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -11,6 +12,13 @@ public class AddressBookData {
 	private int zip;
 	private long phoneNumber;
 	private String email;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -60,7 +68,8 @@ public class AddressBookData {
 		this.email = email;
 	}
 	
-	public AddressBookData(AddressBookDTO addressBookDTO) {
+	public AddressBookData(int id, AddressBookDTO addressBookDTO) {
+		this.id = id;
 		this.firstName = addressBookDTO.firstName;
 		this.lastName = addressBookDTO.lastName;
 		this.address = addressBookDTO.address;
