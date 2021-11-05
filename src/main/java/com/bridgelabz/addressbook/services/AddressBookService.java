@@ -11,26 +11,22 @@ import com.bridgelabz.addressbook.model.AddressBookData;
 @Service
 public class AddressBookService implements IAddressBookService{
 
+	private List<AddressBookData> addressBookList = new ArrayList();
 	@Override
 	public List<AddressBookData> getAddressBookData() {
-		List<AddressBookData> addressBookList = new ArrayList<>();
-		addressBookList.add(new AddressBookData(1, new AddressBookDTO("Zoya", "Sanjeev",
-				"jpnagar", "hyderabad", "telangana", 500100,Long.valueOf(800990990),"zoya@gmail.com")));
 		return addressBookList;
 	}
 
 	@Override
 	public AddressBookData getAddressBookDataById(int id) {
-		AddressBookData addrBookData = null;
-		addrBookData = new AddressBookData(1,new AddressBookDTO("Zoya", "Sanjeev",
-				"jpnagar", "hyderabad", "telangana", 500100,Long.valueOf(800990990),"zoya@gmail.com"));
-		return null;
+		return addressBookList.get(id-1);
 	}
 
 	@Override
 	public AddressBookData createAddressBookDaat(AddressBookDTO addressBookDTO) {
 		AddressBookData addrBookData = null;
 		addrBookData = new AddressBookData(1, addressBookDTO);
+		addressBookList.add(addrBookData);
 		return addrBookData;
 	}
 
