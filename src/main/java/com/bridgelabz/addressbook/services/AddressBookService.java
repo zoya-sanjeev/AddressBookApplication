@@ -1,5 +1,6 @@
 package com.bridgelabz.addressbook.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.bridgelabz.addressbook.dto.AddressBookDTO;
@@ -9,8 +10,10 @@ public class AddressBookService implements IAddressBookService{
 
 	@Override
 	public List<AddressBookData> getAddressBookData() {
-		// TODO Auto-generated method stub
-		return null;
+		List<AddressBookData> addressBookList = new ArrayList<>();
+		addressBookList.add(new AddressBookData(1, new AddressBookDTO("Zoya", "Sanjeev",
+				"jpnagar", "hyderabad", "telangana", 500100,Long.valueOf(800990990),"zoya@gmail.com")));
+		return addressBookList;
 	}
 
 	@Override

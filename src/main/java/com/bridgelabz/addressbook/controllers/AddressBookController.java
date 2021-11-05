@@ -1,5 +1,6 @@
 package com.bridgelabz.addressbook.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,10 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bridgelabz.addressbook.dto.AddressBookDTO;
 import com.bridgelabz.addressbook.dto.ResponseDTO;
 import com.bridgelabz.addressbook.model.AddressBookData;
+import com.bridgelabz.addressbook.services.IAddressBookService;
 
 @RestController
 @RequestMapping("/addressbook")
 public class AddressBookController {
+	
+	@Autowired
+	private IAddressBookService addressBookService;
 	
 	@RequestMapping(value = {"", "/", "/get"})
 	public ResponseEntity<ResponseDTO> getAddressBookData(){
