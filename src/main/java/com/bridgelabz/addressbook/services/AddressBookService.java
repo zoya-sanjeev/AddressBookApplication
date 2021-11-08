@@ -38,7 +38,8 @@ public class AddressBookService implements IAddressBookService{
 		AddressBookData addrBookData = null;
 		addrBookData = new AddressBookData( addressBookDTO);
 		addressBookList.add(addrBookData);
-		return addrBookData;
+		log.debug("Contact data:" + addrBookData.toString());
+		return addressRepository.save(addrBookData);
 	}
 
 	@Override
