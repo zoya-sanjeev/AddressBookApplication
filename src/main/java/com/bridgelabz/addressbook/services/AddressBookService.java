@@ -44,21 +44,14 @@ public class AddressBookService implements IAddressBookService{
 	@Override
 	public AddressBookData updateAddressBopkData(int id, AddressBookDTO addressBookDTO) {
 		AddressBookData addrBookData = this.getAddressBookDataById(id);
-		addrBookData.setFirstName(addressBookDTO.firstName);
-		addrBookData.setLastName(addressBookDTO.lastName);
-		addrBookData.setAddress(addressBookDTO.address);
-		addrBookData.setCity(addressBookDTO.city);
-		addrBookData.setState(addressBookDTO.state);
-		addrBookData.setZip(addressBookDTO.zip);
-		addrBookData.setPhoneNumber(addressBookDTO.phoneNumber);
-		addrBookData.setEmail(addressBookDTO.email);
-		return addrBookData;
+		addrBookData.updateAddressBookData(addressBookDTO);
+		return addressRepository.save(addrBookData);
 	}
 
 	@Override
 	public void deleteAddressBookData(int id) {
-		addressBookList.remove(id -1);
-		
+		AddressBookData addrBookData = this.getAddressBookDataById(id);
+		addressRepository.delete(addrBookData);
 	}
 
 }
