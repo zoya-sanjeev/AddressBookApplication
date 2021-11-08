@@ -19,7 +19,7 @@ public class AddressBookService implements IAddressBookService{
 
 	@Autowired
 	private AddressBookRepository addressRepository;
-	private List<AddressBookData> addressBookList = new ArrayList();
+	
 	@Override
 	public List<AddressBookData> getAddressBookData() {
 		return addressRepository.findAll();
@@ -36,7 +36,6 @@ public class AddressBookService implements IAddressBookService{
 	public AddressBookData createAddressBookDaat(AddressBookDTO addressBookDTO) {
 		AddressBookData addrBookData = null;
 		addrBookData = new AddressBookData( addressBookDTO);
-		addressBookList.add(addrBookData);
 		log.debug("Contact data:" + addrBookData.toString());
 		return addressRepository.save(addrBookData);
 	}
