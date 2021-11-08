@@ -27,8 +27,7 @@ public @Data class AddressBookData {
 	private long phoneNumber;
 	private String email;
 	
-	public AddressBookData(int id, AddressBookDTO addressBookDTO) {
-		this.id = id;
+	public AddressBookData(AddressBookDTO addressBookDTO) {
 		this.firstName = addressBookDTO.firstName;
 		this.lastName = addressBookDTO.lastName;
 		this.address = addressBookDTO.address;

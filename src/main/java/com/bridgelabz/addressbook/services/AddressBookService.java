@@ -29,7 +29,7 @@ public class AddressBookService implements IAddressBookService{
 	@Override
 	public AddressBookData createAddressBookDaat(AddressBookDTO addressBookDTO) {
 		AddressBookData addrBookData = null;
-		addrBookData = new AddressBookData(addressBookList.size()+1, addressBookDTO);
+		addrBookData = new AddressBookData( addressBookDTO);
 		addressBookList.add(addrBookData);
 		return addrBookData;
 	}
