@@ -22,15 +22,14 @@ public class AddressBookService implements IAddressBookService{
 	private List<AddressBookData> addressBookList = new ArrayList();
 	@Override
 	public List<AddressBookData> getAddressBookData() {
-		return addressBookList;
+		return addressRepository.findAll();
 	}
 
 	@Override
 	public AddressBookData getAddressBookDataById(int id) {
-		return addressBookList.stream()
-				.filter(addData -> addData.getId() == id)
-				.findFirst()
-				.orElseThrow(() -> new AddressBookException("Address not found"));
+		return addressRepository
+				.findById(id)
+				.orElseThrow(() -> new AddressBookException("Contact not found"));
 	}
 
 	@Override

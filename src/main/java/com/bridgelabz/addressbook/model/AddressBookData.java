@@ -27,7 +27,13 @@ public @Data class AddressBookData {
 	private long phoneNumber;
 	private String email;
 	
+	public AddressBookData() {
+		
+	}
 	public AddressBookData(AddressBookDTO addressBookDTO) {
+		this.updateAddressBookData(addressBookDTO);
+	}
+	public void updateAddressBookData(AddressBookDTO addressBookDTO) {
 		this.firstName = addressBookDTO.firstName;
 		this.lastName = addressBookDTO.lastName;
 		this.address = addressBookDTO.address;
@@ -38,7 +44,5 @@ public @Data class AddressBookData {
 		this.email = addressBookDTO.email;
 	}
 	
-	public AddressBookData() {
-		
-	}
+	
 }
